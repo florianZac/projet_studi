@@ -1,5 +1,5 @@
-@import "bootstrap-icons/font/bootstrap-icons.css";
-@import 'custom';
+@import url("/node_modules/bootstrap-icons/font/bootstrap-icons.css"); // Import Bootstrap Icons
+@import 'custom'; // Import custom styles
 
 html, body {
   height: 100%;
