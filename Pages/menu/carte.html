@@ -1,0 +1,206 @@
+<div class="hero-scene text-center text-white">
+  <div class="hero-scene-content">
+    <h1>La carte</h1>
+  </div>
+</div>
+
+<!-- Conteneur principal avec espace footer -->
+<div class="content-with-footer-space">
+  <section>
+    <article data-section-id="1" class="menu-section">
+      <div class="container p-4 position-relative">
+        <!--ajoute un padding de 4-->
+        <!-- Boutons d'administration -->
+        <div class="admin-controls position-absolute" style="top: 10px; right: 10px" data-show="admin">
+          <button type="button" class="btn btn-sm btn-primary btn-edit-section"
+            data-section-id="1"
+            data-section-title="Le plat du jour"
+            data-section-description='The standard chunk of Lorem Ipsum used since the 1500s.'
+            data-section-image="/images/produit frais.jpg">
+            <i class="bi bi-pencil-fill"> Modifier</i> 
+          </button>
+          <button type="button" class="btn btn-sm btn-primary btn-outline-danger btn-delete-section text-white" data-section-id="1" data-section-title="Le plat du jour">
+            <i class="bi bi-trash3-fill"> Supprimer</i> 
+          </button>
+        </div>
+
+        <h2 class="text-center text-primary section-title">Le plat du jour</h2>
+        <!--ajoute un titre centré et en couleur primary-->
+        <div class="row row-cols-2 align-items-center">
+          <!--ajoute une rangée de 2 colonnes-->
+          <div class="col">
+            <!--ajoute une colonne-->
+            <p class="text-justify section-description">
+              <!--ajoute un texte justifié-->
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, officia!
+            </p>
+          </div>
+          <div class="col">
+            <!--ajoute une colonne-->
+            <img
+              class="w-100 rounded section-image"
+              src="/images/produit frais.jpg"
+              alt="Plat du jour"
+            />
+            <!--ajoute une image du chef Arnaud Michant en 100%-->
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="bg-black text-white menu-section" data-section-id="2">
+      <!--ajoute un fond noir et un texte blanc-->
+      <div class="container p-4 position-relative">
+        <!--ajoute un padding de 4-->
+        <!-- Boutons d'administration -->
+        <div
+          class="admin-controls position-absolute"
+          style="top: 10px; right: 10px"
+          data-show="admin"
+        >
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-light btn-edit-section"
+            data-section-id="2"
+            data-section-title="Les vins"
+            data-section-description="Découvrez la richesse des saveurs avec nos vins primés."
+            data-section-image="/images/produit frais.jpg"
+          >
+           <i class="bi bi-pencil-fill"> Modifier</i> 
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-light btn-delete-section"
+            data-section-id="2"
+            data-section-title="Les vins"
+          >
+           <i class="bi bi-trash3-fill"> Supprimer</i> 
+          </button>
+        </div>
+
+        <h2 class="text-center text-primary section-title">Les vins</h2>
+        <!--ajoute un titre centré et en couleur primary-->
+        <div class="row row-cols-2 align-items-center">
+          <!--ajoute une rangée de 2 colonnes-->
+          <div class="col">
+            <!--ajoute une colonne-->
+            <img
+              class="w-100 rounded section-image"
+              src="/images/produit frais.jpg"
+              alt="Bouteille de vin"
+            />
+            <!--ajoute une image du chef Arnaud Michant en 100%-->
+          </div>
+          <div class="col">
+            <!--ajoute une colonne-->
+            <p class="text-justify section-description">
+              <!--ajoute un texte justifié-->
+              Découvrez la richesse des saveurs avec nos vins primés.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="menu-section" data-section-id="3">
+      <div class="container p-4 position-relative">
+        <!--ajoute un padding de 4-->
+        <!-- Boutons d'administration -->
+        <div
+          class="admin-controls position-absolute"
+          style="top: 10px; right: 10px"
+          data-show="admin"
+        >
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-primary btn-edit-section"
+            data-section-id="3"
+            data-section-title="Les desserts"
+            data-section-description="De quoi finir en douceur."
+            data-section-image="/images/produit frais.jpg"
+          >
+           <i class="bi bi-pencil-fill"> Modifier</i> 
+          </button>
+          <button
+            type="button"
+            class="btn btn-sm btn-outline-primary btn-delete-section"
+            data-section-id="3"
+            data-section-title="Les desserts"
+          >
+           <i class="bi bi-trash3-fill"> Supprimer</i> 
+          </button>
+        </div>
+
+        <h2 class="text-center text-primary section-title">Les desserts</h2>
+        <!--ajoute un titre centré et en couleur primary-->
+        <div class="row row-cols-2 align-items-center">
+          <!--ajoute une rangée de 2 colonnes-->
+          <div class="col">
+            <!--ajoute une colonne-->
+            <p class="text-justify section-description">
+              <!--ajoute un texte justifié-->
+              De quoi finir en douceur.
+            </p>
+          </div>
+          <div class="col">
+            <!--ajoute une colonne-->
+            <img
+              class="w-100 rounded section-image"
+              src="/images/produit frais.jpg"
+              alt="Dessert du restaurant"
+            />
+            <!--ajoute une image du chef Arnaud Michant en 100%-->
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Bouton pour ajouter une nouvelle section (admin uniquement) -->
+  <div class="container text-center mb-4" data-show="admin">
+    <button type="button" class="btn btn-primary" id="btn-add-section" data-bs-toggle="modal" data-bs-target="#Editioncarte"> <i class="bi bi-plus-square"> Ajouter une section </i> </button>
+  </div>
+
+  <div class="text-center">
+    <a href="/reserver" class="btn btn-primary" onclick="route(event)"
+      >Réserver</a
+    >
+  </div>
+</div>
+<!-- Fin du conteneur principal avec espace footer -->
+
+<!-- Modal pour ajouter/modifier une section -->
+  <!-- Modal Edition -->
+  <div class="modal fade" id="Editioncarte" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5 text-center" id="EditionPhotoModalLabel">Edition carte</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!--Formulaire à l'intérieur de la modal-->
+          <form>
+            <div class="mb-3">
+              <label for="NamePhotoInput" class="form-label">Titre du nouveau plat </label>
+              <input type="text" class="form-control" id="NamePhotoInput" placeholder="Salade de Ouf">
+            </div>
+            <div class="mb-3">
+              <label for="ImageInput" class="form-label">Image</label>
+              <input type="file" class="form-control" id="ImageInput" placeholder="Image à importer">
+            </div>
+            <div class="mb-3">
+              <label for="DescriptionPlatCarteInput" class="form-label">Description du plat</label>
+              <textarea class="form-control" id="DescriptionPlatCarteInput" rows="5" placeholder="Un magnifique plat de la gastronomie Occitane."></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="button" class="btn btn-primary">Enregistrer</button>
+              <button type="button" class="btn btn-primary Add_Cart_BDD">Ajouter à la base de donnée</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS bundle (nécessaire pour les modals) -->
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

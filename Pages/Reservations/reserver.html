@@ -1,0 +1,78 @@
+<body>
+  <div class="hero-scene text-center text-white">
+    <div>
+      <div class="hero-scene-content">
+        <h1>Ma Réservation</h1>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+<div class="container">
+    <form>
+        <div class="mb-3">
+            <label for="nomInput" class="form-label">Nom</label>
+            <input disable type="text" class="form-control" id="nomInput" placeholder="Votre nom" value="Jean">
+        </div>
+        <div class="mb-3">
+            <label for="prenomInput" class="form-label">Prenom</label>
+            <input disable type="text" class="form-control" id="prenomInput" placeholder="Votre Prénom" value="est rien à foutre">
+        </div>
+        <div class="mb-3">
+            <label for="AllergieInput" class="form-label">Allergie </label>
+            <input disable type="text" class="form-control" id="AllergieInput" placeholder="Vos allergie" value="des femmes">
+        </div>
+        <div class="mb-3">
+            <label for="NbConviveInput" class="form-label">Nombre de convive habituel </label>
+            <input type="number" class="form-control" id="NbConviveInput" placeholder="combien vous etes actuellement" value="666">
+        </div>
+        <div class="mb-3">
+            <label for="dateInput" class="form-label">date </label>
+            <input type="date" class="form-control" id="dateInput">
+        </div>
+        <div class="mb-3">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <input type="radio" class="btn-check" name="ServiceChoisi" id="MatinRadio" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="MatinRadio">Matin</label>
+
+                <input type="radio" class="btn-check" name="ServiceChoisi" id="MidiRadio" autocomplete="off">
+                <label class="btn btn-outline-primary" for="MidiRadio">Midi</label>
+
+                <input type="radio" class="btn-check" name="ServiceChoisi" id="SoirRadio" autocomplete="off">
+                <label class="btn btn-outline-primary" for="SoirRadio">soir</label>
+            </div>
+        </div>
+        <div class="mb-3"></div>      
+            <label for="DataInput" class="form-label">Heure</label>
+            <select class="form-select" id="selectHour" title="select">
+            <option selected>9:30</option>
+            <option value="1">9:30</option>
+            <option value="2">10:00</option>
+            <option value="3">10:30</option>
+            <option value="4">11:00</option>
+            <option value="5">11:30</option>
+            <option value="6">12:00</option>
+            <option value="7">12:30</option>
+            <option value="8">13:00</option>
+            <option value="9">13:30</option>
+            <option value="10">14:00</option>
+            <option value="9">14:30</option>
+            <option value="10">18:00</option>
+            <option value="11">18:30</option>
+            <option value="12">19:00</option>
+            <option value="13">19:30</option>
+            <option value="14">20:00</option>
+            <option value="15">20:30</option>
+            <option value="16">21:00</option>
+            <option value="17">21:30</option>
+            <option value="18">22:00</option>
+            </select>
+        </div>
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary">Réserver</button>
+            <button type="button" class="btn btn-danger">Annuler</button>
+        </div>
+
+    </form>
+</div>
