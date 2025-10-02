@@ -9,10 +9,13 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  text-align: center;
+
 }
 
 main {
   flex: 1; // prend tout l'espace disponible
+  margin-bottom: 250px;
 }
 
 
@@ -28,7 +31,7 @@ p{
 }
 
 .hero-scene{
-
+    margin-bottom: 16px;
     position: relative;
     &::before{
         content: "";
@@ -68,12 +71,14 @@ p{
 .image-card{
     position: relative;
   &:hover{
-    .titre-image{
+    .titre-image,
+    .action-image-buttons{
         opacity: 1;
         
     }
     img{
         filter: brightness(0.3);
+
     }
 
   } 
@@ -89,4 +94,37 @@ p{
     opacity: 0;
     transition: all 0.3s;
   }
+
+  .action-image-buttons{
+    position: absolute;
+    top:0%;
+    left:0%;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+
+
+}
+
+//Login
+/* Formulaire animé et responsive */
+form {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+form:focus-within {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.form-label{
+  color: $primary;
+}
+
+.btn-primary{
+  text-align: center;
+
 }
