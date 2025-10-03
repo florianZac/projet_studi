@@ -5,7 +5,7 @@
 const tokenCookieName = "accesstoken";
 const roleCookieName = "role";
 
-// ✅ Récupérer un cookie
+// Récupérer un cookie
 export function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -13,17 +13,17 @@ export function getCookie(name) {
     return null;
 }
 
-// ✅ Vérifie si l'utilisateur est connecté
+// Vérifie si l'utilisateur est connecté
 export function isConnected() {
     return !!getCookie(tokenCookieName);
 }
 
-// ✅ Récupérer le rôle
+// Récupérer le rôle
 export function getRole() {
     return getCookie(roleCookieName);
 }
 
-// ✅ Créer un cookie
+// Créer un cookie
 export function setCookie(name, value, days) {
     let expires = "";
     if (days) {
@@ -35,7 +35,7 @@ export function setCookie(name, value, days) {
     document.cookie = `${name}=${value || ""}${expires}; path=/; SameSite=Lax`;
 }
 
-// ✅ Supprimer un cookie
+// Supprimer un cookie
 export function eraseCookie(name) {
     // Supprime toutes les variantes de path possibles
     const paths = ["/", "/Pages/Auth", "/script"];
@@ -56,16 +56,24 @@ export function showAndHideElementsForRole() {
         el.classList.remove("d-none"); // reset
         switch(el.dataset.show) {
             case 'disconnected':
-                if(userConnected) el.classList.add("d-none");
+                if(userConnected){
+                  el.classList.add("d-none");  
+                } 
                 break;
             case 'connected':
-                if(!userConnected) el.classList.add("d-none");
+                if(!userConnected){
+                  el.classList.add("d-none");  
+                } 
                 break;
             case 'admin':
-                if(!userConnected || role !== "admin") el.classList.add("d-none");
+                if(!userConnected || role !== "admin"){
+                  el.classList.add("d-none");  
+                } 
                 break;
             case 'client':
-                if(!userConnected || role !== "client") el.classList.add("d-none");
+                if(!userConnected || role !== "client"){
+                  el.classList.add("d-none");  
+                } 
                 break;
         }
     });
@@ -79,7 +87,7 @@ export function signout() {
     eraseCookie(tokenCookieName);
     eraseCookie(roleCookieName);
 
-    // ✅ Supprimer tous les cookies résiduels, y compris ceux sans nom
+    // Supprimer tous les cookies résiduels, y compris ceux sans nom
     document.cookie.split(";").forEach(c => {
         const eqPos = c.indexOf("=");
         const name = eqPos > -1 ? c.substr(0, eqPos).trim() : c.trim();

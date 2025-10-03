@@ -1,11 +1,39 @@
 import { setCookie, showAndHideElementsForRole } from "../script.js";
 
+const tokenCookieName = "accesstoken";
+
+function setToken(token){
+
+    setCookie(tokenCookieName, token, 7);
+}
+
+function getToken(){
+    return getCookie(tokenCookieName);
+
+}
+
 // =======================
-// Fonction login
+// Fonction qui gère la connexion pour clients et admins
 // =======================
-export function checkCredentials(mailInput, passwordInput){
-    if(mailInput.value === "test@gmail.com" && passwordInput.value === "Azerty123+") {
-        // Nettoyer tous les cookies existants/fantômes
+export function checkCredentials(mailInput, passwordInput) {
+    let role = null; // Variable pour stocker le rôle détecté
+
+    // Vérifier les identifiants client
+    if (mailInput.value === "test@gmail.com" && passwordInput.value === "Azerty123+") {
+        role = "client";
+    } 
+    else if (mailInput.value === "admin@gmail.com" && passwordInput.value === "Admin123!") {
+        role = "admin";
+    }
+    //Il faudra récuperer le vrai token
+    const token = "dfkdfjdkfmdfdmsmfsmfmsfjmsfj";
+    setToken(token);
+
+    // Vérifier les identifiants admin
+
+
+    if (role) {
+        // Supprimer tous les cookies existants/fantômes
         document.cookie.split(";").forEach(c => {
             const eqPos = c.indexOf("=");
             const name = eqPos > -1 ? c.substr(0, eqPos).trim() : c.trim();
@@ -14,15 +42,15 @@ export function checkCredentials(mailInput, passwordInput){
             }
         });
 
-        // Création des cookies token et role
+        // Créer les cookies token et rôle
         setCookie("accesstoken", "dummyToken123", 7);
-        setCookie("role", "client", 7);
+        setCookie("role", role, 7);
 
-        // Mettre à jour la navbar
+        // Mettre à jour la navbar selon le rôle
         showAndHideElementsForRole();
 
-        // Popup de confirmation
-        alert("Vous êtes connecté !");
+        // Message de confirmation
+        alert(`Connecté en tant que ${role} !`);
 
         // SPA navigation vers l'accueil
         window.history.pushState({}, "", "/");
@@ -35,7 +63,7 @@ export function checkCredentials(mailInput, passwordInput){
 }
 
 // =======================
-// Exposer pour console/debug
+// Exposer la fonction pour la console/debug
 // =======================
 window.checkCredentials = checkCredentials;
 
@@ -48,9 +76,10 @@ export function initLoginPage() {
     const btnLogin = document.getElementById("btnLogin");
 
     if (btnLogin && mailInput && passwordInput) {
-        // Supprime l’ancien listener si présent en clonant le bouton
+        // Supprimer un ancien listener pour éviter les doublons
         const newBtn = btnLogin.cloneNode(true);
         btnLogin.replaceWith(newBtn);
+
         // Attacher le listener au bouton cloné
         newBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -58,3 +87,4 @@ export function initLoginPage() {
         });
     }
 }
+

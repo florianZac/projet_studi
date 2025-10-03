@@ -1,144 +1,128 @@
-<body>
-  <div class="hero-scene text-center text-white">
-    <div>
-      <div class="hero-scene-content">
-        <h1>Galerie</h1>
+<div class="hero-scene text-center text-white">
+  <div class="hero-scene-content">
+    <h1>Galerie</h1>
+  </div>
+</div>
+
+<div class="container pt-4">
+  <!-- Bouton Ajouter une photo réservé aux admin -->
+  <div class="mb-3">
+    <button data-show="admin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+      Ajouter une photo
+    </button>
+  </div>
+
+  <div class="row row-cols-2 row-cols-lg-3 g-3">
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 1</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 2</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 3</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 4</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 5</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col p-3">
+      <div class="image-card text-white">
+        <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
+        <p class="titre-image">Titre 6</p>
+        <div class="action-image-buttons" data-show="admin">
+          <button title="édition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
+          <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"><i class="bi bi-trash"></i></button>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container pt-4">
-    <div>
-      <!-- Correction ici : EditionPhoto → EditionPhotoModal -->
-      <button data_show="admin" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
-        Ajouter une photo
-      </button>
-    </div> 
-    <div class="row row-cols-2 row-cols-lg-3 g-3">
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 1</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> <i class="bi bi-trash"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 2</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"> 
-              <i class="bi bi-pencil-square"></i>
-            </button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> 
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 3</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"> 
-              <i class="bi bi-pencil-square"></i>
-            </button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> 
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 4</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"> 
-              <i class="bi bi-pencil-square"></i>
-            </button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> 
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 5</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"> 
-              <i class="bi bi-pencil-square"></i>
-            </button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> 
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="col p-3">
-        <div class="image-card text-white">
-          <img src="/images/produit frais.jpg" class="rounded w-100" alt="Produit frais">
-          <p class="titre-image">Titre 6</p>
-          <div class="action-image-buttons" data_show="admin">          
-            <button title="edition" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"> 
-              <i class="bi bi-pencil-square"></i>
-            </button>
-            <button title="corbeille" type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#supressionPhotoModal"> 
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <a href="#" class="btn btn-primary text-center">Réserver</a>
-    </div>
+  <div class="mt-3 text-center">
+    <a href="/reserver" class="btn btn-primary">Réserver</a>
   </div>
+</div>
 
-  <!-- Modal Edition -->
-  <div class="modal fade" id="EditionPhotoModal" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5 text-center" id="EditionPhotoModalLabel">Edition Photo</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!--Formulaire à l'intérieur de la modal-->
-          <form>
-            <div class="mb-3">
-              <label for="NamePhotoInput" class="form-label">Titre de la photo</label>
-              <input type="text" class="form-control" id="NamePhotoInput" placeholder="Lasagnes à la bolognaise">
-            </div>
-            <div class="mb-3">
-              <label for="ImageInput" class="form-label">Image</label>
-              <input type="file" class="form-control" id="ImageInput">
-            </div>
-            <div class="text-center">
-              <button type="button" class="btn btn-primary">Enregistrer</button>
-            </div>
-          </form>
-        </div>
+<!-- Modals Bootstrap -->
+<!-- Assure-toi que ces modals existent dans le DOM -->
+<div class="modal fade" id="EditionPhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter / Éditer une photo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!--Formulaire à l'intérieur de la modal-->
+        <form>
+          <div class="mb-3">
+            <label for="NamePhotoInput" class="form-label">Titre de la photo</label>
+            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Lasagnes à la bolognaise">
+          </div>
+          <div class="mb-3">
+            <label for="ImageInput" class="form-label">Image</label>
+            <input type="file" class="form-control" id="ImageInput">
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <!-- Fin Modal Edition -->
+</div>
 
-    <!-- Modal suprpression -->
-  <div class="modal fade" id="supressionPhotoModal" tabindex="-1" aria-labelledby="supressionPhotoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5 text-center" id="supressionPhotoModalLabel">êtes- vous sûr de vouloir supprimer cette photo ?</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+
+<div class="modal fade" id="supressionPhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5 text-center" id="supressionPhotoModalLabel">êtes- vous sûr de vouloir supprimer cette photo ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
           <!--Formulaire à l'intérieur de la modal-->
           <form>
             <div class="mb-3">
@@ -154,11 +138,6 @@
       </div>
     </div>
   </div>
-  <!-- Fin Modal Suprresion -->
+</div>
 
-
-
-
-  <!-- Bootstrap JS bundle (nécessaire pour les modals) -->
-  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

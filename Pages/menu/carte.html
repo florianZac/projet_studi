@@ -7,24 +7,23 @@
 <!-- Conteneur principal avec espace footer -->
 <div class="content-with-footer-space">
   <section>
+    <!-- Section Plat du jour -->
     <article data-section-id="1" class="menu-section">
+      
       <div class="container p-4 position-relative">
-        <!--ajoute un padding de 4-->
-        <!-- Boutons d'administration -->
-        <div class="admin-controls position-absolute" style="top: 10px; right: 10px" data-show="admin">
-          <button data_show="admin" type="button" class="btn btn-sm btn-primary btn-edit-section"
-            data-section-id="1"
-            data-section-title="Le plat du jour"
-            data-section-description='The standard chunk of Lorem Ipsum used since the 1500s.'
-            data-section-image="/images/produit frais.jpg">
-            <i class="bi bi-pencil-fill"> Modifier</i> 
+        <!--  Debut Boutons Modal admin -->
+        <div class="mb-3 position-absolute" style="top:10px; right:10px">
+          <!--Modification carte --> 
+          <button data-show="admin" type="button" class="btn btn-primary btn btn-sm" data-section-id="1" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-fill"> Modifier</i>
           </button>
-          <button data_show="admin" type="button" class="btn btn-sm btn-primary btn-outline-danger btn-delete-section text-white" data-section-id="1" data-section-title="Le plat du jour">
-            <i class="bi bi-trash3-fill"> Supprimer</i> 
+          <!--Suppresion d'un plat Modal-->
+            <button data-show="admin" type="button" class="btn btn-danger btn btn-sm" data-section-id="1" data-bs-toggle="modal" data-bs-target="#SuppressionPhotoModal">
+            <i class="bi bi-trash3-fill"> Supprimer</i>
           </button>
         </div>
-
-        <h2 class="text-center text-primary section-title">Le plat du jour</h2>
+        <!--  Fin Boutons Modal admin -->
+        <h2 class=" text-primary section-title">Le plat du jour</h2>
         <!--ajoute un titre centré et en couleur primary-->
         <div class="row row-cols-2 align-items-center">
           <!--ajoute une rangée de 2 colonnes-->
@@ -36,171 +35,197 @@
             </p>
           </div>
           <div class="col">
-            <!--ajoute une colonne-->
-            <img
-              class="w-100 rounded section-image"
-              src="/images/produit frais.jpg"
-              alt="Plat du jour"
-            />
-            <!--ajoute une image du chef Arnaud Michant en 100%-->
+            <img class="w-100 rounded section-image" src="/images/produit frais.jpg" alt="Plat du jour" />
           </div>
         </div>
       </div>
     </article>
+
+    <!-- Section Vins -->
     <article class="bg-black text-white menu-section" data-section-id="2">
-      <!--ajoute un fond noir et un texte blanc-->
-      <div class="container p-4 position-relative" >
-        <!--ajoute un padding de 4-->
-        <!-- Boutons d'administration -->
-        <div
-          class="admin-controls position-absolute"
-          style="top: 10px; right: 10px"
-          data-show="admin"
-        >
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-light btn-edit-section"
-            data-section-id="2"
-            data-section-title="Les vins"
-            data-section-description="Découvrez la richesse des saveurs avec nos vins primés."
-            data-section-image="/images/produit frais.jpg"
-          >
-           <i class="bi bi-pencil-fill"> Modifier</i> 
+      <div class="container p-4 position-relative">
+        <!--  Debut Boutons Modal admin -->
+        <div class="mb-3 position-absolute" style="top:10px; right:10px">
+          <!--Modification carte --> 
+          <button data-show="admin" type="button" class="btn btn-sm btn-outline-light btn-edit-section" data-section-id="2" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-fill"> Modifier</i>
           </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-light btn-delete-section"
-            data-section-id="2"
-            data-section-title="Les vins"
-          >
-           <i class="bi bi-trash3-fill"> Supprimer</i> 
+          <!--Suppresion d'un plat Modal-->
+            <button data-show="admin" type="button" class="btn btn-danger btn btn-sm" data-section-id="2" data-bs-toggle="modal" data-bs-target="#SuppressionPhotoModal">
+            <i class="bi bi-trash3-fill"> Supprimer</i>
           </button>
         </div>
-
+        <!--  Fin Boutons Modal admin -->
         <h2 class="text-center text-primary section-title">Les vins</h2>
         <!--ajoute un titre centré et en couleur primary-->
         <div class="row row-cols-2 align-items-center">
           <!--ajoute une rangée de 2 colonnes-->
           <div class="col">
-            <!--ajoute une colonne-->
-            <img
-              class="w-100 rounded section-image"
-              src="/images/produit frais.jpg"
-              alt="Bouteille de vin"
-            />
-            <!--ajoute une image du chef Arnaud Michant en 100%-->
+            <img class="w-100 rounded section-image" src="/images/produit frais.jpg" alt="Bouteille de vin" />
           </div>
           <div class="col">
-            <!--ajoute une colonne-->
             <p class="text-justify section-description">
-              <!--ajoute un texte justifié-->
               Découvrez la richesse des saveurs avec nos vins primés.
             </p>
           </div>
         </div>
       </div>
     </article>
+
+    <!-- Section Desserts -->
     <article class="menu-section" data-section-id="3">
-      <div class="container p-4 position-relative" data_show="admin">
-        <!--ajoute un padding de 4-->
-        <!-- Boutons d'administration -->
-        <div
-          class="admin-controls position-absolute"
-          style="top: 10px; right: 10px"
-          data-show="admin"
-        >
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-primary btn-edit-section"
-            data-section-id="3"
-            data-section-title="Les desserts"
-            data-section-description="De quoi finir en douceur."
-            data-section-image="/images/produit frais.jpg"
-          >
-           <i class="bi bi-pencil-fill"> Modifier</i> 
+      <div class="container p-4 position-relative">
+        <!--  Debut Boutons Modal admin -->
+        <div class="mb-3 position-absolute" style="top:10px; right:10px">
+          <!--Modification carte --> 
+          <button data-show="admin" type="button" class="btn btn-sm btn-outline-primary btn-edit-section" data-section-id="3" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">
+            <i class="bi bi-pencil-fill"> Modifier</i>
           </button>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-primary btn-delete-section"
-            data-section-id="3"
-            data-section-title="Les desserts"
-          >
-           <i class="bi bi-trash3-fill"> Supprimer</i> 
+          <!--Suppresion d'un plat Modal-->
+            <button data-show="admin" type="button" class="btn btn-sm btn-outline-primary btn-delete-section" data-section-id="3" data-bs-toggle="modal" data-bs-target="#SuppressionPhotoModal">
+            <i class="bi bi-trash3-fill"> Supprimer</i>
           </button>
         </div>
-
+        <!--  Fin Boutons Modal admin -->
         <h2 class="text-center text-primary section-title">Les desserts</h2>
-        <!--ajoute un titre centré et en couleur primary-->
+        
         <div class="row row-cols-2 align-items-center">
-          <!--ajoute une rangée de 2 colonnes-->
           <div class="col">
-            <!--ajoute une colonne-->
-            <p class="text-justify section-description">
-              <!--ajoute un texte justifié-->
-              De quoi finir en douceur.
-            </p>
+            <p class="text-justify section-description">De quoi finir en douceur.</p>
           </div>
           <div class="col">
-            <!--ajoute une colonne-->
-            <img
-              class="w-100 rounded section-image"
-              src="/images/produit frais.jpg"
-              alt="Dessert du restaurant"
-            />
-            <!--ajoute une image du chef Arnaud Michant en 100%-->
+            <img class="w-100 rounded section-image" src="/images/produit frais.jpg" alt="Dessert du restaurant" />
           </div>
         </div>
       </div>
     </article>
   </section>
 
-  <!-- Bouton pour ajouter une nouvelle section (admin uniquement) -->
-  <div class="container text-center mb-4" data-show="admin">
-    <button type="button" class="btn btn-primary" id="btn-add-section" data-bs-toggle="modal" data-bs-target="#Editioncarte"> <i class="bi bi-plus-square"> Ajouter une section </i> </button>
+  <!-- Bouton ajouter section admin -->
+  <div class="container text-center mb-4">
+    <button
+      data-show="admin"
+      type="button"
+      class="btn btn-primary"
+      id="btn-add-section"
+      data-bs-toggle="modal"
+      data-bs-target="#CreatePhotoModal">
+      <i class="bi bi-plus-square"> Ajouter une section </i>
+    </button>
   </div>
 
   <div class="text-center">
-    <a href="/reserver" class="btn btn-primary" onclick="route(event)"
-      >Réserver</a
-    >
+    <a href="/reserver" class="btn btn-primary" onclick="route(event)">Réserver</a>
   </div>
 </div>
+
 <!-- Fin du conteneur principal avec espace footer -->
+  <!-- Modal creation -->
+<div class="modal fade" id="CreatePhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Ajouter une section</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!--Formulaire à l'intérieur de la modal-->
+        <form>
+          <div class="mb-3">
+            <label for="NamePhotoInput" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Titre du nouveau plat">
+          </div>
+          <div class="mb-3">
+            <label for="ImageInput" class="form-label">Image</label>
+            <input type="file" class="form-control" id="ImageInput" placeholder="Image à importer">
+          </div>
+          <div class="mb-3">
+            <label for="DescriptionPlatCarteInput" class="form-label">Description</label>
+            <textarea class="form-control" id="DescriptionPlatCarteInput" rows="5" placeholder="Description"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary">Enregistrer</button>
+            <button type="button" class="btn btn-primary Add_Cart_BDD">Ajouter à la base de donnée</button>
 
-<!-- Modal pour ajouter/modifier une section -->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Modal Edition -->
-  <div class="modal fade" id="Editioncarte" tabindex="-1" aria-labelledby="EditionPhotoModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5 text-center" id="EditionPhotoModalLabel">Edition carte</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <!--Formulaire à l'intérieur de la modal-->
-          <form>
-            <div class="mb-3">
-              <label for="NamePhotoInput" class="form-label">Titre du nouveau plat </label>
-              <input type="text" class="form-control" id="NamePhotoInput" placeholder="Salade de Ouf">
-            </div>
-            <div class="mb-3">
-              <label for="ImageInput" class="form-label">Image</label>
-              <input type="file" class="form-control" id="ImageInput" placeholder="Image à importer">
-            </div>
-            <div class="mb-3">
-              <label for="DescriptionPlatCarteInput" class="form-label">Description du plat</label>
-              <textarea class="form-control" id="DescriptionPlatCarteInput" rows="5" placeholder="Un magnifique plat de la gastronomie Occitane."></textarea>
-            </div>
+<div class="modal fade" id="EditionPhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modifier une section</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <!--Formulaire à l'intérieur de la modal-->
+        <form>
+          <div class="mb-3">
+            <label for="NamePhotoInput" class="form-label">Titre </label>
+            <input type="text" class="form-control" id="NamePhotoInput" placeholder="Titre du nouveau plat">
+          </div>
+          <div class="mb-3">
+            <label for="ImageInput" class="form-label">Image</label>
+            <input type="file" class="form-control" id="ImageInput" placeholder="Image à importer">
+          </div>
+          <div class="mb-3">
+            <label for="DescriptionPlatCarteInput" class="form-label">Description</label>
+            <textarea class="form-control" id="DescriptionPlatCarteInput" rows="5" placeholder="Description"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-primary">Enregistrer</button>
+            <button type="button" class="btn btn-primary Add_Cart_BDD">Ajouter à la base de donnée</button>
 
-            <div class="text-center" data_show="admin">
-              <button type="button" class="btn btn-primary">Enregistrer</button>
-              <button type="button" class="btn btn-primary Add_Cart_BDD">Ajouter à la base de donnée</button>
-            </div>
-          </form>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Supression -->
+<div class="modal fade" id="SuppressionPhotoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center">Supprimer une section</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center">
+          <!-- Bouton ouvre le modal de confirmation -->
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#ConfirmDeleteModal">
+            Supprimer
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Bootstrap JS bundle (nécessaire pour les modals) -->
+<!-- Modal de confirmation -->
+<div class="modal fade" id="ConfirmDeleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title">Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <p>Êtes-vous sûr de vouloir supprimer cette section ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-danger" onclick="deleteImage()">Oui, supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
