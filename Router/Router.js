@@ -1,12 +1,12 @@
 import Route from "../Router/Route.js";
 import { allRoutes, websiteName } from "../Router/allRoutes.js";
-import { showAndHideElementsForRole } from "../script/script.js";
+import { isConnected, showAndHideElementsForRole, getRole } from "../script/script.js"; 
 
 // Mode debug → afficher les logs navigation
 const debug = true;
 
 // Route 404 par défaut si l'URL ne correspond à aucune route
-const route404 = new Route("404", "Page introuvable", "/Pages/404.html");
+const route404 = new Route("404", "Page introuvable", "/Pages/404.html","/",["client","admin"],false);
 
 // Cache pour les scripts déjà injectés
 const loadedScripts = new Set();
@@ -34,6 +34,30 @@ export const LoadContentPage = async () => {
     const path = window.location.pathname;
     const actualRoute = getRouteByUrl(path);
 
+    // =======================
+    // Vérifier les droits d'accès
+    // =======================
+    const allRolesArray = actualRoute.authorize;
+
+    if (allRolesArray.length > 0) {
+        if (allRolesArray.includes("disconnected")) {
+            if (isConnected()) {
+                // utilisateur déjà connecté → accès interdit
+                return navigate("/");
+            }
+        } else {
+            if (!isConnected()) {
+                // pas connecté → rediriger vers login
+                return navigate("/login");
+            }
+            const roleUser = getRole();
+            if (!allRolesArray.includes(roleUser)) {
+                // rôle incorrect → retour accueil (ou "/403" si tu crées une page interdite)
+                return navigate("/");
+            }
+        }
+    }
+
     try {
         // Charger le HTML de la page
         const res = await fetch(actualRoute.pathHtml);
@@ -45,21 +69,16 @@ export const LoadContentPage = async () => {
         document.getElementById("main-page").innerHTML = "<h2>Erreur chargement</h2>";
     }
 
-    // =======================
     // Initialiser tous les modals de la page injectée
-    // =======================
     document.querySelectorAll('#main-page .modal').forEach(modalEl => {
         new bootstrap.Modal(modalEl);
     });
 
-    // =======================
     // Charger le JS spécifique à la page si défini
-    // =======================
     if (actualRoute.pathJS && actualRoute.pathJS.trim() !== "") {
         const loadScript = () => {
             import(actualRoute.pathJS + (actualRoute.reloadJS ? `?v=${Date.now()}` : ""))
                 .then(mod => {
-                    // Appeler initLoginPage si défini
                     if (mod.initLoginPage) mod.initLoginPage();
                 })
                 .catch(err => console.error("Erreur import module JS:", err));
@@ -69,7 +88,6 @@ export const LoadContentPage = async () => {
             loadScript();
             if (!actualRoute.reloadJS) loadedScripts.add(actualRoute.pathJS);
         } else {
-            // Script déjà chargé → ré-exécuter init
             loadScript();
         }
     }
