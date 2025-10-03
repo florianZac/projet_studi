@@ -10,14 +10,17 @@
     <form>
         <div class="mb-3">
             <label for="EmailInput" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="EmailInput" placeholder="Email@mail.fr">
-        </div>
+            <input type="email" class="form-control" id="EmailInput" placeholder="Email@mail.fr" value="test@gmail.com">
+            <div class="invalid-feedback">
+              Le mail ou le mot de passe ne correspond pas à la base de donnée 
+            </div>
+          </div>
         <div class="mb-3">
             <label for="PasswordInput" class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" id="PasswordInput">
-        </div>
+            <input type="password" class="form-control" id="PasswordInput" value="Azerty123+">
+          </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Connexion</button>
+          <button type="button" class="btn btn-primary" id="btnLogin">Connexion</button>
         </div>
         <div class="text-center pt-3">
             <a href="/inscription">Vous n'avez pas de compte ? Inscrivez-vous ici !!</a>

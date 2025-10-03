@@ -1,53 +1,106 @@
-import Route from "./Route.js";
-import { allRoutes, websiteName } from "./allRoutes.js";
+import Route from "../Router/Route.js";
+import { allRoutes, websiteName } from "../Router/allRoutes.js";
+import { showAndHideElementsForRole } from "../script/script.js";
 
-// Route 404
+// Mode debug → afficher les logs navigation true affichage console avec inspecter
+const debug = true;
+
+// Route 404 par défaut si l'URL ne correspond à aucune route
 const route404 = new Route("404", "Page introuvable", "/Pages/404.html");
 
+// Cache pour les scripts déjà injectés
+const loadedScripts = new Set();
+
+// =======================
 // Fonction pour récupérer la route correspondant à l'URL
+// =======================
 const getRouteByUrl = (url) => {
-  // Rediriger /index.html ou vide vers /
-  if (url === "/index.html" || url === "") url = "/";
-  const currentRoute = allRoutes.find(route => route.url === url);
-  return currentRoute || route404;
+    if (url === "/index.html" || url === "") url = "/";
+    return allRoutes.find(route => route.url === url) || route404;
 };
 
-// Fonction pour charger le contenu dans <main>
-const LoadContentPage = async () => {
-  const path = window.location.pathname;
-  const actualRoute = getRouteByUrl(path);
-
-  try {
-    const html = await fetch(actualRoute.pathHtml).then(res => res.text());
-    document.getElementById("main-page").innerHTML = html;
-  } catch (err) {
-    console.error("Erreur chargement page :", err);
-    document.getElementById("main-page").innerHTML = "<h2>Erreur chargement</h2>";
-  }
-
-  // Charger le JS spécifique si défini
-  if (actualRoute.pathJS) {
-    const scriptTag = document.createElement("script");
-    scriptTag.type = "module";
-    scriptTag.src = actualRoute.pathJS;
-    document.body.appendChild(scriptTag);
-  }
-
-  document.title = `${actualRoute.title} - ${websiteName}`;
+// =======================
+// Formater l'heure pour le log
+// =======================
+const getFormattedTime = () => {
+    const now = new Date();
+    return now.toLocaleTimeString("fr-FR", { hour12: false });
 };
 
-// Event delegation pour tous les liens SPA
+// =======================
+// Charger le contenu HTML dans <main> pour la SPA
+// =======================
+export const LoadContentPage = async () => {
+    const path = window.location.pathname;
+    const actualRoute = getRouteByUrl(path);
+
+    try {
+        // Charger le HTML de la page via fetch
+        const res = await fetch(actualRoute.pathHtml);
+        if (!res.ok) throw new Error(`Erreur HTTP ${res.status}`);
+        const html = await res.text();
+        document.getElementById("main-page").innerHTML = html;
+    } catch (err) {
+        console.error("Erreur chargement page :", err);
+        document.getElementById("main-page").innerHTML = "<h2>Erreur chargement</h2>";
+    }
+
+    // =======================
+    // Charger le JS spécifique à la page si défini
+    // =======================
+    if (actualRoute.pathJS && actualRoute.pathJS.trim() !== "") {
+        const loadScript = () => {
+            import(actualRoute.pathJS + (actualRoute.reloadJS ? `?v=${Date.now()}` : ""))
+                .then(mod => {
+                    // Appeler la fonction initLoginPage si elle existe
+                    if (mod.initLoginPage) mod.initLoginPage();
+                })
+                .catch(err => console.error("Erreur import module JS:", err));
+        };
+
+        if (actualRoute.reloadJS || !loadedScripts.has(actualRoute.pathJS)) {
+            // Script jamais chargé ou reload forcé
+            loadScript();
+            if (!actualRoute.reloadJS) loadedScripts.add(actualRoute.pathJS);
+        } else {
+            // Script déjà chargé → ré-exécuter init
+            loadScript();
+        }
+    }
+
+    // Mettre à jour le titre de la page
+    document.title = `${actualRoute.title} - ${websiteName}`;
+
+    if (debug) console.log(`[SPA Router] Navigué vers ${path} à ${getFormattedTime()}`);
+
+    // Mettre à jour la navbar après chaque chargement
+    if (typeof showAndHideElementsForRole === "function") {
+        showAndHideElementsForRole();
+    }
+};
+
+// =======================
+// Fonction de navigation SPA
+// =======================
+export const navigate = (url) => {
+    window.history.pushState({}, "", url);
+    LoadContentPage();
+};
+
+// =======================
+// Event delegation pour les liens internes SPA
+// =======================
 document.addEventListener("click", (event) => {
-  const link = event.target.closest('a[href^="/"]'); // lien interne
-  if (!link) return;
+    const link = event.target.closest('a[href^="/"]');
+    if (!link) return;
 
-  event.preventDefault();
-  const href = link.getAttribute("href");
-  window.history.pushState({}, "", href);
-  LoadContentPage();
+    event.preventDefault();
+    navigate(link.getAttribute("href"));
 });
 
-// Gestion du bouton "retour" du navigateur
+// =======================
+// Gestion du bouton retour du navigateur
+// =======================
 window.onpopstate = LoadContentPage;
 
 // Charger la page initiale

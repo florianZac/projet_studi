@@ -4,11 +4,11 @@ import Route from "./Route.js";
 export const allRoutes = [
     new Route("/", "Accueil", "/Pages/home.html"),
     new Route("/galerie", "Galerie", "/Pages/galerie.html"),
-    new Route("/login", "Login", "/Pages/Auth/login.html"),
-    new Route("/inscription", "Inscription", "/Pages/Auth/inscription.html"),
+    new Route("/login", "Login", "/Pages/Auth/login.html","/script/Auth/login.js"),
+    new Route("/inscription", "Inscription", "/Pages/Auth/inscription.html","/script/Auth/inscription.js"),
     new Route("/compte", "Mon compte", "/Pages/Auth/compte.html"),
-    new Route("/editPassword", "Modification mot de passe", "/Pages/Auth/editPassword.html"),
-    new Route("/reservation", "Afficher les reservations", "/Pages/Reservations/reservation.html"),
+    new Route("/editPassword", "Modification mot de passe", "/Pages/Auth/editPassword.html","/script/Auth/editPassword.js",true),
+    new Route("/reservation", "Afficher les reservations", "/Pages/Reservations/reservation.html",true),
     new Route("/reserver", "Réserver des plats", "/Pages/Reservations/reserver.html"),
     new Route("/carte", "Choix de la carte", "/Pages/menu/carte.html"),
 ];

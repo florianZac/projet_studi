@@ -1,7 +1,7 @@
 <div class="hero-scene text-center text-white">
   <div>
     <div class="hero-scene-content">
-      <h1>Connexion</h1>
+      <h1>Inscription</h1>
     </div>
   </div>
 </div>
@@ -11,26 +11,55 @@
         <div class="mb-3">
             <label for="nomInput" class="form-label">Nom</label>
             <input type="text" class="form-control" id="nomInput" placeholder="Votre nom">
+            <ul class="mt-2 small">
+              <li id="rule-name-notempty" class="text-secondary">Le nom est obligatoire</li>
+              <li id="rule-name-letters" class="text-secondary">Uniquement lettres, espaces et tirets</li>
+            </ul>
         </div>
         <div class="mb-3">
-            <label for="prenomInput" class="form-label">Prenom</label>
-            <input type="text" class="form-control" id="prenomInput" placeholder="Votre Prénom">
+            <label for="prenomInput" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenomInput" placeholder="Votre prénom">
+            <ul class="mt-2 small">
+              <li id="rule-prenom-notempty" class="text-secondary">Le prénom est obligatoire</li>
+              <li id="rule-prenom-letters" class="text-secondary">Uniquement lettres, espaces et tirets</li>
+            </ul>
         </div>
         <div class="mb-3">
             <label for="EmailInput" class="form-label">E-mail </label>
             <input type="email" class="form-control" id="EmailInput" placeholder="Email@mail.fr">
+              <!-- Aide dynamique Email -->
+            <ul class="mt-2 small" id="EmailHelp">
+                <li id="rule-special-PointEmail" class="text-secondary">Doit comporter un .</li>
+                <li id="notempty" class="text-secondary">Ne doit pas être vide</li>
+                <li id="rule-special-Email" class="text-secondary">Doit comporter un @</li>
+            </ul>
         </div>
         <div class="mb-3">
             <label for="PasswordInput" class="form-label">Mot de passe</label>
             <input type="password" class="form-control" id="PasswordInput">
+              <!-- Aide dynamique mot de passe -->
+            <ul class="mt-2 small" id="passwordHelp">
+                <li id="rule-length" class="text-secondary">Au moins 6 caractères</li>
+                <li id="rule-upper" class="text-secondary">Au moins une majuscule</li>
+                <li id="rule-digit" class="text-secondary">Au moins un chiffre</li>
+                <li id="rule-special" class="text-secondary">Au moins un caractère spécial (!@#$%^&*-+)</li>
+            </ul>
         </div>
         <div class="mb-3">
             <label for="ValidatePaswordInput" class="form-label">Validation mot de passe</label>
             <input type="password" class="form-control" id="ValidatePaswordInput">
+            <!-- Aide dynamique de vérification de mot de passe-->
+            <ul class="mt-2 small" id="ValidationHelp">
+              <li id="rule-validationPasword" class="text-secondary">Le mot de passe et la validation doivent être identiques</li>
+            </ul>
         </div>
         <div class="mb-3">
-            <label for="NumeroInput" class="form-label">Numéro de téléphone</label>
-            <input type="text" class="form-control" id="NumeroInput">
+            <label for="NumberInput" class="form-label">Numéro de téléphone</label>
+            <input type="text" class="form-control" id="NumberInput">
+            <!-- Aide dynamique number -->
+            <ul class="mt-2 small">
+              <li id="rule-number-notempty" class="text-secondary">Le numéro doit être au format FR (0XXXXXXXXX)</li>
+            </ul>
         </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Inscription</button>
@@ -40,5 +69,3 @@
         </div>
     </form>
 </div>
-
-

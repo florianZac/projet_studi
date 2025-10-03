@@ -12,14 +12,14 @@
         <!--ajoute un padding de 4-->
         <!-- Boutons d'administration -->
         <div class="admin-controls position-absolute" style="top: 10px; right: 10px" data-show="admin">
-          <button type="button" class="btn btn-sm btn-primary btn-edit-section"
+          <button data_show="admin" type="button" class="btn btn-sm btn-primary btn-edit-section"
             data-section-id="1"
             data-section-title="Le plat du jour"
             data-section-description='The standard chunk of Lorem Ipsum used since the 1500s.'
             data-section-image="/images/produit frais.jpg">
             <i class="bi bi-pencil-fill"> Modifier</i> 
           </button>
-          <button type="button" class="btn btn-sm btn-primary btn-outline-danger btn-delete-section text-white" data-section-id="1" data-section-title="Le plat du jour">
+          <button data_show="admin" type="button" class="btn btn-sm btn-primary btn-outline-danger btn-delete-section text-white" data-section-id="1" data-section-title="Le plat du jour">
             <i class="bi bi-trash3-fill"> Supprimer</i> 
           </button>
         </div>
@@ -49,7 +49,7 @@
     </article>
     <article class="bg-black text-white menu-section" data-section-id="2">
       <!--ajoute un fond noir et un texte blanc-->
-      <div class="container p-4 position-relative">
+      <div class="container p-4 position-relative" >
         <!--ajoute un padding de 4-->
         <!-- Boutons d'administration -->
         <div
@@ -101,7 +101,7 @@
       </div>
     </article>
     <article class="menu-section" data-section-id="3">
-      <div class="container p-4 position-relative">
+      <div class="container p-4 position-relative" data_show="admin">
         <!--ajoute un padding de 4-->
         <!-- Boutons d'administration -->
         <div
@@ -192,7 +192,7 @@
               <textarea class="form-control" id="DescriptionPlatCarteInput" rows="5" placeholder="Un magnifique plat de la gastronomie Occitane."></textarea>
             </div>
 
-            <div class="text-center">
+            <div class="text-center" data_show="admin">
               <button type="button" class="btn btn-primary">Enregistrer</button>
               <button type="button" class="btn btn-primary Add_Cart_BDD">Ajouter à la base de donnée</button>
             </div>
