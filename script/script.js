@@ -4,7 +4,7 @@
 
 const tokenCookieName = "accesstoken";
 const roleCookieName = "role";
-
+getInfosUser();
 // Récupérer un cookie
 export function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -39,9 +39,9 @@ export function setCookie(name, value, days) {
 export function eraseCookie(name) {
     // Supprime toutes les variantes de path possibles
     const paths = ["/", "/Pages/Auth", "/script"];
-    paths.forEach(path => {
+    for (const path of paths) {
         document.cookie = `${name}=; path=${path}; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-    });
+    }
 }
 
 // =======================
@@ -52,7 +52,7 @@ export function showAndHideElementsForRole() {
     const role = getRole();
     const allElements = document.querySelectorAll('[data-show]');
 
-    allElements.forEach(el => {
+    for (const el of allElements) {
         el.classList.remove("d-none"); // reset
         switch(el.dataset.show) {
             case 'disconnected':
@@ -76,7 +76,7 @@ export function showAndHideElementsForRole() {
                 } 
                 break;
         }
-    });
+    }
 }
 
 // =======================
@@ -88,20 +88,21 @@ export function signout() {
     eraseCookie(roleCookieName);
 
     // Supprimer tous les cookies résiduels, y compris ceux sans nom
-    document.cookie.split(";").forEach(c => {
+    const cookies = document.cookie.split(";");
+    for (const c of cookies) {
         const eqPos = c.indexOf("=");
-        const name = eqPos > -1 ? c.substr(0, eqPos).trim() : c.trim();
+        const name = eqPos > -1 ? c.slice(0, eqPos).trim() : c.trim();
         if(name) { 
             document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
         }
-    });
+    };
 
     // Mettre à jour la navbar
     showAndHideElementsForRole();
 
     // Recharger la page principale du SPA
-    window.history.pushState({}, "", "/");
-    window.dispatchEvent(new Event('popstate'));
+    globalThis.history.pushState({}, "", "/");
+    globalThis.dispatchEvent(new Event('popstate'));
 }
 
 // =======================
@@ -115,3 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Mise à jour navbar au chargement de la page
     showAndHideElementsForRole();
 });
+
+function getInfosUser(){
+    //let myHeaders = new Headers();
+    //myHeaders.append("X-AUTH-TOKEN", getToken());
+    console.log("myHeaders");
+}

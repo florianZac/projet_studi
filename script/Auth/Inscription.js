@@ -6,7 +6,12 @@ const Inputpassword = document.getElementById("PasswordInput"); // champ Mot de 
 const Inputvalidatepassword = document.getElementById("ValidatePaswordInput"); // champ Confirmation mot de passe
 const Inputnumero = document.getElementById("NumberInput"); // champ Numéro de téléphone
 const form = document.querySelector("form"); // le formulaire entier
-const submitBtn = form.querySelector("button[type='submit']"); // bouton "Envoyer"
+const submitBtn = document.getElementById("btn-validation-integration"); // bouton "Envoyer"
+const formulaireinscription = document.getElementById("formulaireinscription");
+
+// --- ÉCOUTEUR SUR BOUTON SUBMIT ---
+
+submitBtn.addEventListener("click", inscriptionUser);
 
 // --- INIT : bouton désactivé par défaut ---
 submitBtn.disabled = true;
@@ -217,3 +222,40 @@ form.addEventListener("submit", function (e) {
     alert("Veuillez corriger les erreurs avant de soumettre.");
   }
 });
+
+function inscriptionUser() {
+  // Fonction d'inscription utilisateur à implémenter
+
+  //recupération des données du formulaire
+  let dataForm = new FormData(formulaireinscription);
+  const myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  let name = dataForm.get("nom");
+  let prenom = dataForm.get("prenom");
+  let email = dataForm.get("email");
+  let password = dataForm.get("mdp");
+  let number = dataForm.get("telephone");
+  
+  const raw = JSON.stringify({
+    "firstName": name,
+    "lastName": prenom,
+    "email": email,
+    "password": password,
+    "phone": number
+  });
+
+  const requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow"
+  };
+
+  fetch("http://127.0.0.1:8000/api/registration", requestOptions)
+    .then((response) => response.json())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+
+
+}

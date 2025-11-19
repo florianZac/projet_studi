@@ -1,0 +1,85 @@
+
+  <!-- Bandeau titre -->
+<div class="hero-scene text-center text-white">
+  <div class="hero-scene-content">
+      <h1>Contactez-Nous</h1>
+    </div>
+  </div>
+
+  <!-- Conteneur principal centré -->
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+    <!-- Carte du formulaire -->
+    <div class="card shadow p-4 w-100 custom-max-width">
+      <h2 class="text-center mb-4">Formulaire de contact</h2>
+
+      <form id="formulaire">
+
+        <fieldset id="infos">
+          <div class="mb-3">
+            <label for="nomInput" class="form-label">Nom</label>
+            <input type="text" class="form-control" name="nom" id="nomInput" placeholder="Votre nom" required>
+            <ul class="mt-2 small">
+              <li id="rule-name-notempty" class="text-secondary">Le nom est obligatoire</li>
+            </ul>
+          </div>
+
+          <div class="mb-3">
+            <label for="prenomInput" class="form-label">Prénom</label>
+            <input type="text" class="form-control" id="prenomInput" placeholder="Votre prénom" required>
+            <ul class="mt-2 small">
+              <li id="rule-prenom-notempty" class="text-secondary">Le prénom est obligatoire</li>
+            </ul>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="particulier">Type de contact</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="typeContact" id="particulier" value="particulier" required checked>
+              <label class="form-check-label" for="particulier">Particulier</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="typeContact" id="professionnel" value="professionnel" required>
+              <label class="form-check-label" for="professionnel">Professionnel</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset id="message">
+          <legend><h4 class="mt-4 mb-3">Message</h4></legend>
+
+          <div class="mb-3">
+            <label for="objet" class="form-label">Objet</label>
+            <select name="objet" id="objet" class="form-select" required>
+              <option value="demande_de_contact" selected>Demande de contact</option>
+              <option value="demande_de_renseignement">Demande de renseignement</option>                    
+              <option value="demande_de_rendez-vous">Demande de rendez-vous</option>
+              <option value="Modification_de_rendez_vous">Modification de rendez-vous</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="email@mail.com" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="messageArea" class="form-label">Votre message</label>
+            <textarea name="message" id="messageArea" class="form-control" rows="5" placeholder="Message..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+        </fieldset>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<style>
+  .custom-max-width {
+    max-width: 600px;
+  }
+</style>
