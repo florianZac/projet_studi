@@ -4,7 +4,31 @@
 
 const tokenCookieName = "accesstoken";
 const roleCookieName = "role";
-getInfosUser();
+
+// =======================
+// Initialisation globale
+// =======================
+document.addEventListener("DOMContentLoaded", () => {
+    // Bouton de déconnexion
+    const signoutBtn = document.getElementById("signout-btn");
+    if (signoutBtn) signoutBtn.addEventListener("click", () => signout());
+
+      // Mise à jour navbar au chargement de la page
+    showAndHideElementsForRole(); 
+    // Charger les infos utilisateur (token + rôle)
+    getInfosUser();
+});
+
+function setToken(){
+    return setCookie(tokenCookieName,token,7);
+}
+
+function getToken(){
+    return getCookie(tokenCookieName);
+}
+
+
+
 // Récupérer un cookie
 export function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -105,20 +129,41 @@ export function signout() {
     globalThis.dispatchEvent(new Event('popstate'));
 }
 
-// =======================
-// Initialisation globale
-// =======================
-document.addEventListener("DOMContentLoaded", () => {
-    // Bouton de déconnexion
-    const signoutBtn = document.getElementById("signout-btn");
-    if(signoutBtn) signoutBtn.addEventListener("click", () => signout());
 
-    // Mise à jour navbar au chargement de la page
-    showAndHideElementsForRole();
-});
+// =======================
+// Récupération des infos utilisateur
+// =======================
+function getInfosUser() {
+    const token = getToken();
+    if (!token) {
+        showAndHideElementsForRole();
+        return;
+    }
 
-function getInfosUser(){
-    //let myHeaders = new Headers();
-    //myHeaders.append("X-AUTH-TOKEN", getToken());
-    console.log("myHeaders");
+    const myHeaders = new Headers();
+    myHeaders.append("X-AUTH-TOKEN", token);
+
+    fetch("http://127.0.0.1:8000/api/account/me", {
+        method: "GET",
+        headers: myHeaders,
+        redirect: "follow"
+    })
+    .then(async (response) => {
+        if (!response.ok) {
+            if (response.status === 401 || response.status === 403) {
+                signout(); // token invalide → déconnexion automatique
+            }
+            throw new Error(`Erreur API (${response.status})`);
+        }
+        return response.json();
+    })
+    .then((user) => {
+        if (user && user.role) {
+            setCookie(roleCookieName, user.role, 7);
+        }
+        showAndHideElementsForRole();
+    } )
+    .catch((error) => console.error(error));
+
+
 }

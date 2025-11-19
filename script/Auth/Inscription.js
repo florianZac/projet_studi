@@ -253,8 +253,26 @@ function inscriptionUser() {
   };
 
   fetch("http://127.0.0.1:8000/api/registration", requestOptions)
-    .then((response) => response.json())
-    .then((result) => console.log(result))
+    .then((response) => {
+      if (response.ok) {
+        // La réponse est correcte (200-299)
+        return response.json();
+      } else if (response.status >= 400 && response.status < 500) {
+        // Erreur côté client
+        throw new Error(`Erreur client (${response.status}): ${response.statusText}`);
+      } else if (response.status >= 500 && response.status < 600) {
+        // Erreur côté serveur
+        throw new Error(`Erreur serveur (${response.status}): ${response.statusText}`);
+      } else {
+        // Autre type d'erreur (redirection, etc.)
+        throw new Error(`Erreur inconnue (${response.status}): ${response.statusText}`);
+      }
+    })
+    .then((result) =>{
+      alert("Inscription réussie "+name+" ! Vous allez être redirigé vers la page de connexion.");
+      document.location.href = "login";
+
+    } )
     .catch((error) => console.error(error));
 
 
